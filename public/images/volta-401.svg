@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="bg401" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ECFDF5" />
+      <stop offset="100%" stop-color="#D1FAE5" />
+    </linearGradient>
+    <linearGradient id="body401" x1="150" y1="120" x2="450" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="darkMetal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1F2937" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="24" fill="url(#bg401)" />
+  <circle cx="490" cy="80" r="110" fill="#10B981" fill-opacity="0.08" />
+  <circle cx="100" cy="330" r="90" fill="#059669" fill-opacity="0.08" />
+  <!-- Ground Shadow -->
+  <ellipse cx="300" cy="332" rx="195" ry="14" fill="#064E3B" fill-opacity="0.15" />
+  <!-- Rear Wheel -->
+  <circle cx="175" cy="272" r="56" fill="#111827" />
+  <circle cx="175" cy="272" r="38" fill="#374151" />
+  <circle cx="175" cy="272" r="26" fill="#E5E7EB" />
+  <circle cx="175" cy="272" r="12" fill="#059669" />
+  <!-- Front Wheel -->
+  <circle cx="430" cy="272" r="56" fill="#111827" />
+  <circle cx="430" cy="272" r="38" fill="#374151" />
+  <circle cx="430" cy="272" r="26" fill="#E5E7EB" />
+  <circle cx="430" cy="272" r="12" fill="#059669" />
+  <!-- Rear Swingarm & Suspension -->
+  <path d="M175 272 L245 255 L235 205 Z" fill="#1F2937" />
+  <line x1="185" y1="260" x2="215" y2="195" stroke="#10B981" stroke-width="8" stroke-linecap="round" />
+  <!-- Main Scooter Frame (Volta 401 Angular Sport Utility Style) -->
+  <path d="M140 205 L260 190 L310 250 L365 250 L395 140 L440 165 L410 268 L225 268 L140 205 Z" fill="url(#body401)" />
+  <!-- Front Apron Sharp Fairing -->
+  <path d="M365 135 L435 155 L455 215 L395 245 L355 190 Z" fill="#047857" />
+  <path d="M380 148 L430 164 L442 200 L395 215 Z" fill="#10B981" fill-opacity="0.35" />
+  <!-- LED Headlight (Square Dual LED signature of 401) -->
+  <rect x="424" y="164" width="22" height="28" rx="4" transform="rotate(14 424 164)" fill="#ECFDF5" stroke="#34D399" stroke-width="3" />
+  <!-- Front Fork & Fender -->
+  <path d="M395 160 L430 272" stroke="#1F2937" stroke-width="12" stroke-linecap="round" />
+  <path d="M385 230 Q435 210 475 242 L450 252 Q425 235 395 248 Z" fill="#059669" />
+  <!-- Dual Tough Utility Seat + Heavy Duty Rear Carrier -->
+  <path d="M155 168 Q215 162 275 182 L265 205 L145 198 Z" fill="url(#darkMetal)" />
+  <path d="M112 162 L158 168 L155 180 L112 176 Z" fill="#374151" />
+  <!-- Handlebars & Mirror -->
+  <path d="M362 112 L398 138" stroke="#111827" stroke-width="10" stroke-linecap="round" />
+  <rect x="342" y="102" width="36" height="14" rx="7" fill="#111827" />
+  <line x1="370" y1="105" x2="360" y2="75" stroke="#1F2937" stroke-width="4" />
+  <ellipse cx="355" cy="72" rx="14" ry="8" fill="#111827" />
+  <!-- Side Panel Branding -->
+  <text x="200" y="232" fill="#ECFDF5" font-family="sans-serif" font-weight="800" font-size="18" letter-spacing="1">VOLTA 401</text>
+  <!-- Badge -->
+  <rect x="32" y="28" width="150" height="34" rx="17" fill="#059669" />
+  <text x="107" y="50" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="700" font-size="13">DUAL BATTERY READY</text>
+</svg>
+

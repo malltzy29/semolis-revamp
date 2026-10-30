@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" fill="none">
+  <defs>
+    <linearGradient id="bgMandala" x1="0" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ECFDF5" />
+      <stop offset="100%" stop-color="#FEF3C7" />
+    </linearGradient>
+    <linearGradient id="bodyMandala" x1="140" y1="130" x2="450" y2="290" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#059669" />
+      <stop offset="100%" stop-color="#065F46" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="24" fill="url(#bgMandala)" />
+  <circle cx="495" cy="85" r="105" fill="#059669" fill-opacity="0.08" />
+  <circle cx="105" cy="315" r="95" fill="#D97706" fill-opacity="0.07" />
+  <!-- Ground Shadow -->
+  <ellipse cx="300" cy="332" rx="195" ry="14" fill="#064E3B" fill-opacity="0.15" />
+  <!-- Rear Wheel (Whitewall Classic-Modern Style) -->
+  <circle cx="178" cy="274" r="52" fill="#111827" />
+  <circle cx="178" cy="274" r="37" fill="#F9FAFB" />
+  <circle cx="178" cy="274" r="26" fill="#D1D5DB" />
+  <circle cx="178" cy="274" r="11" fill="#059669" />
+  <!-- Front Wheel -->
+  <circle cx="426" cy="274" r="52" fill="#111827" />
+  <circle cx="426" cy="274" r="37" fill="#F9FAFB" />
+  <circle cx="426" cy="274" r="26" fill="#D1D5DB" />
+  <circle cx="426" cy="274" r="11" fill="#059669" />
+  <!-- Rounded Retro-Modern Vespa-esque Body (Volta Mandala) -->
+  <path d="M130 238 C130 182 195 176 260 192 L302 248 L366 248 L392 135 L432 148 C448 188 446 235 415 266 L152 266 C136 262 130 250 130 238 Z" fill="url(#bodyMandala)" />
+  <!-- Rounded Front Fender -->
+  <path d="M380 235 C405 205 455 210 472 245 L400 252 Z" fill="#047857" />
+  <!-- Classic Tan Leather Seat -->
+  <path d="M156 164 C195 154 248 162 272 184 L258 202 L152 192 C144 182 146 168 156 164 Z" fill="#92400E" />
+  <path d="M162 168 C195 160 242 166 264 184" stroke="#B45309" stroke-width="3" stroke-linecap="round" />
+  <!-- Chrome Rear Rack -->
+  <path d="M122 166 L154 172 L150 184 L118 178 Z" fill="#9CA3AF" />
+  <!-- Classic Round/Hex Headlight Housing & Chrome Mirror -->
+  <circle cx="412" cy="118" r="18" fill="#047857" />
+  <circle cx="422" cy="118" r="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="3" />
+  <line x1="395" y1="110" x2="385" y2="76" stroke="#9CA3AF" stroke-width="4" />
+  <circle cx="382" cy="72" r="11" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="2" />
+  <!-- Side Panel Accent Curve -->
+  <path d="M158 228 Q210 210 262 238" stroke="#34D399" stroke-width="4" stroke-linecap="round" />
+  <text x="168" y="250" fill="#ECFDF5" font-family="sans-serif" font-weight="800" font-size="16" letter-spacing="1">VOLTA MANDALA</text>
+  <!-- Badge -->
+  <rect x="32" y="28" width="164" height="34" rx="17" fill="#065F46" />
+  <text x="114" y="50" text-anchor="middle" fill="#FEF3C7" font-family="sans-serif" font-weight="700" font-size="13">RETRO STYLISH SERIES</text>
+</svg>
+
