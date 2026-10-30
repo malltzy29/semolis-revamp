@@ -32,10 +32,6 @@ Platform web mandiri (standalone) penyewaan motor listrik **Semolis Bali** di ba
    - Mendukung transfer dari Bank apa saja maupun E-Wallet (DANA, OVO, GoPay, ShopeePay, Flip, dll).
    - Validasi Bukti Pembayaran: Tombol WhatsApp Admin terkunci sebelum penyewa mengunggah foto bukti pembayaran dan menekan tombol validasi.
    - Tombol 1-klik mengirim format konfirmasi lengkap beserta data penyewa langsung ke WhatsApp Admin.
-5. **Panel Admin (`/admin`)**:
-   - URL: `/admin` (Default PIN: `semolis2026`).
-   - Manajemen kapasitas unit garasi (`+` / `-`) dan pengaturan tarif harian secara instan.
-
 ---
 
 ## 3. Kebijakan & Ketentuan Operasional
