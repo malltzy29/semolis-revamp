@@ -2,12 +2,9 @@ import React from "react";
 import { getProductsWithAvailability } from "@/lib/db";
 import HomeClient from "@/components/HomeClient";
 
-export const dynamic = "force-dynamic";
-
 function getDefaultDates() {
   const start = new Date();
   const end = new Date();
-  // Default 3-day inclusive rental: today, tomorrow, day after tomorrow (end - start + 1 = 3)
   end.setDate(start.getDate() + 2);
 
   return {
@@ -28,4 +25,3 @@ export default function HomePage() {
     />
   );
 }
-

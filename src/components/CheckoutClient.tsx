@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
   AlertCircle,
@@ -30,6 +30,7 @@ import {
   calculateRentalDays,
   formatDisplayDate,
   formatRupiah,
+  getAssetUrl,
 } from "@/lib/fleet-data";
 
 interface CheckoutClientProps {
@@ -45,10 +46,39 @@ export default function CheckoutClient({
   initialStartDate,
   initialEndDate,
 }: CheckoutClientProps) {
-  const [products] = useState<ProductWithAvailability[]>(initialProducts);
+  const [products, setProducts] = useState<ProductWithAvailability[]>(initialProducts);
   const [selectedSlug, setSelectedSlug] = useState<string>(initialMotorSlug);
   const [startDate, setStartDate] = useState<string>(initialStartDate);
   const [endDate, setEndDate] = useState<string>(initialEndDate);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("semolis_products_override");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          setProducts(parsed);
+        }
+      }
+    } catch {
+      // Keep initialProducts
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const motorParam = params.get("motor");
+    const startParam = params.get("start");
+    const endParam = params.get("end");
+
+    if (motorParam && initialProducts.some((p) => p.slug === motorParam)) {
+      setSelectedSlug(motorParam);
+    }
+    if (startParam && startParam.length === 10) {
+      setStartDate(startParam);
+    }
+    if (endParam && endParam.length === 10) {
+      setEndDate(endParam);
+    }
+  }, [initialProducts]);
 
   const [customerName, setCustomerName] = useState<string>("");
   const [customerPhone, setCustomerPhone] = useState<string>("");
@@ -339,7 +369,7 @@ export default function CheckoutClient({
             {selectedProduct && (
               <div className="p-4 rounded-xl bg-emerald-50/50 border border-emerald-100 flex items-center gap-4">
                 <img
-                  src={selectedProduct.image_url}
+                  src={getAssetUrl(selectedProduct.image_url)}
                   alt={selectedProduct.name}
                   className="w-24 h-16 object-contain rounded-lg bg-white p-1 border border-gray-200 shrink-0"
                 />

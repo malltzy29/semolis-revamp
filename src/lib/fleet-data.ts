@@ -253,3 +253,58 @@ export function calculateRentalDays(startDate: string, endDate: string): number 
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24)) + 1;
   return diffDays;
 }
+
+export function getAssetUrl(assetPath: string): string {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  if (!assetPath) return "";
+  if (assetPath.startsWith("http") || (basePath && assetPath.startsWith(basePath))) {
+    return assetPath;
+  }
+  return `${basePath}${assetPath.startsWith("/") ? assetPath : `/${assetPath}`}`;
+}
+
+export const DEFAULT_PRODUCTS: ProductWithAvailability[] = [
+  {
+    id: 1,
+    name: "Volta 401",
+    slug: "volta-401",
+    price_per_day: 60000,
+    min_days: 3,
+    total_stock: 6,
+    available_stock: 6,
+    booked_count: 0,
+    is_available: true,
+    image_url: "/images/volta-401.svg",
+    is_active: 1,
+    specs: FLEET_SPECS_BY_SLUG["volta-401"],
+  },
+  {
+    id: 2,
+    name: "Volta Eagle",
+    slug: "volta-eagle",
+    price_per_day: 65000,
+    min_days: 3,
+    total_stock: 5,
+    available_stock: 5,
+    booked_count: 0,
+    is_available: true,
+    image_url: "/images/volta-eagle.svg",
+    is_active: 1,
+    specs: FLEET_SPECS_BY_SLUG["volta-eagle"],
+  },
+  {
+    id: 3,
+    name: "Volta Mandala",
+    slug: "volta-mandala",
+    price_per_day: 70000,
+    min_days: 3,
+    total_stock: 4,
+    available_stock: 4,
+    booked_count: 0,
+    is_available: true,
+    image_url: "/images/volta-mandala.svg",
+    is_active: 1,
+    specs: FLEET_SPECS_BY_SLUG["volta-mandala"],
+  },
+];
+

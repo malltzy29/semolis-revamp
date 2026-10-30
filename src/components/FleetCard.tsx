@@ -15,6 +15,7 @@ import {
 import {
   ProductWithAvailability,
   formatRupiah,
+  getAssetUrl,
 } from "@/lib/fleet-data";
 
 interface FleetCardProps {
@@ -68,7 +69,7 @@ export default function FleetCard({
 
         <div className="aspect-[16/10] w-full flex items-center justify-center overflow-hidden rounded-[12px] my-2">
           <img
-            src={product.image_url}
+            src={getAssetUrl(product.image_url)}
             alt={`Motor Listrik ${product.name} - Semolis Bali`}
             className="w-full h-full object-contain group-hover:scale-102 transition-transform duration-300"
             loading="lazy"

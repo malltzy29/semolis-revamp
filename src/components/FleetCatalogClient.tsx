@@ -21,6 +21,7 @@ import {
   ProductWithAvailability,
   calculateRentalDays,
   formatRupiah,
+  getAssetUrl,
   TOTAL_SGB_COUNT,
 } from "@/lib/fleet-data";
 
@@ -57,12 +58,26 @@ export default function FleetCatalogClient({
           )}&end_date=${encodeURIComponent(endDate)}`,
           { cache: "no-store" }
         );
-        const data = await res.json();
-        if (!cancelled && data.ok && Array.isArray(data.products)) {
-          setProducts(data.products);
+        if (res.ok) {
+          const data = await res.json();
+          if (!cancelled && data.ok && Array.isArray(data.products)) {
+            setProducts(data.products);
+            return;
+          }
+        }
+        const saved = localStorage.getItem("semolis_products_override");
+        if (saved && !cancelled) {
+          setProducts(JSON.parse(saved));
         }
       } catch {
-        // Keep current products
+        try {
+          const saved = localStorage.getItem("semolis_products_override");
+          if (saved && !cancelled) {
+            setProducts(JSON.parse(saved));
+          }
+        } catch {
+          // Keep current products
+        }
       } finally {
         if (!cancelled) setIsLoading(false);
       }
@@ -201,7 +216,7 @@ export default function FleetCatalogClient({
 
                   <div className="my-6 aspect-[16/10] flex items-center justify-center">
                     <img
-                      src={product.image_url}
+                      src={getAssetUrl(product.image_url)}
                       alt={product.name}
                       className="w-full h-full object-contain"
                     />

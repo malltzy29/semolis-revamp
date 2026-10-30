@@ -66,15 +66,26 @@ export default function HomeClient({
           )}&end_date=${encodeURIComponent(endDate)}`,
           { cache: "no-store" }
         );
-        const data = await res.json();
-        if (!cancelled && data.ok && Array.isArray(data.products)) {
-          setProducts(data.products);
+        if (res.ok) {
+          const data = await res.json();
+          if (!cancelled && data.ok && Array.isArray(data.products)) {
+            setProducts(data.products);
+            return;
+          }
         }
       } catch {
-        // Keep current state
+        // Fallback for static hosting
       } finally {
         if (!cancelled) {
           setIsLoadingStock(false);
+        }
+      }
+      const savedLocal = localStorage.getItem("semolis_products_override");
+      if (!cancelled && savedLocal) {
+        try {
+          setProducts(JSON.parse(savedLocal));
+        } catch {
+          // Ignore parse error
         }
       }
     };
