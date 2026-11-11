@@ -85,8 +85,6 @@ export const PAYMENT_CONFIG = {
   operationalHours: "08:00 – 21:00 WITA (Setiap Hari)",
   instagramHandle: "@asa_sewamilikmolis",
   instagramUrl: "https://www.instagram.com/asa_sewamilikmolis",
-  facebookName: "Sewa Motor Listrik Bali / KJI Impala",
-  facebookUrl: "https://www.facebook.com/profile.php?id=61559592037020",
   pickupNotice: "Pengambilan & pengembalian unit mandiri di garasi (tidak ada antar jemput)",
   helmNotice: "Penyewaan motor tidak termasuk helm (tidak free helm)",
   midtransNotice:
