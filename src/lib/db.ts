@@ -25,18 +25,6 @@ export function getDb(): DatabaseSync {
   db.exec("PRAGMA journal_mode = WAL;");
   db.exec("PRAGMA foreign_keys = ON;");
 
-  // Migrate the original illustration assets to the approved product photos.
-  // Only replace the old SVG defaults so any future custom image paths remain intact.
-  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url = ?").run(
-    "/images/volta-401-real.jpg", "volta-401", "/images/volta-401.svg"
-  );
-  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url = ?").run(
-    "/images/volta-eagle-real.jpg", "volta-eagle", "/images/volta-eagle.svg"
-  );
-  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url = ?").run(
-    "/images/volta-mandala-real.jpg", "volta-mandala", "/images/volta-mandala.svg"
-  );
-
   db.exec(`
     CREATE TABLE IF NOT EXISTS products (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
