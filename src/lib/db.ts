@@ -25,17 +25,6 @@ export function getDb(): DatabaseSync {
   db.exec("PRAGMA journal_mode = WAL;");
   db.exec("PRAGMA foreign_keys = ON;");
 
-  // Migrate only the original default image paths; preserve any admin-customized images.
-  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url = ?").run(
-    "/images/volta-401-real.jpg", "volta-401", "/images/volta-401.svg"
-  );
-  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url = ?").run(
-    "/images/volta-eagle-real.jpg", "volta-eagle", "/images/volta-eagle.svg"
-  );
-  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url = ?").run(
-    "/images/volta-mandala-real.jpg", "volta-mandala", "/images/volta-mandala.svg"
-  );
-
   db.exec(`
     CREATE TABLE IF NOT EXISTS products (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -48,6 +37,19 @@ export function getDb(): DatabaseSync {
       is_active INTEGER DEFAULT 1
     );
   `);
+
+  // Migrate known default image paths after the products table exists.
+  // Admin-customized image paths are intentionally left unchanged.
+  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url IN (?, ?)").run(
+    "/images/volta-401-real.webp", "volta-401", "/images/volta-401.svg", "/images/volta-401-real.jpg"
+  );
+  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url IN (?, ?)").run(
+    "/images/volta-eagle-real.webp", "volta-eagle", "/images/volta-eagle.svg", "/images/volta-eagle-real.jpg"
+  );
+  db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url IN (?, ?)").run(
+    "/images/volta-mandala-real.webp", "volta-mandala", "/images/volta-mandala.svg", "/images/volta-mandala-real.jpg"
+  );
+
 
   const countRow = db
     .prepare("SELECT COUNT(*) as count FROM products")
@@ -65,7 +67,7 @@ export function getDb(): DatabaseSync {
       60000,
       3,
       6,
-      "/images/volta-401.svg"
+      "/images/volta-401-real.webp"
     );
     insertProduct.run(
       "Volta Eagle",
@@ -73,7 +75,7 @@ export function getDb(): DatabaseSync {
       65000,
       3,
       5,
-      "/images/volta-eagle.svg"
+      "/images/volta-eagle-real.webp"
     );
     insertProduct.run(
       "Volta Mandala",
@@ -81,7 +83,7 @@ export function getDb(): DatabaseSync {
       70000,
       3,
       4,
-      "/images/volta-mandala.svg"
+      "/images/volta-mandala-real.webp"
     );
   }
 
