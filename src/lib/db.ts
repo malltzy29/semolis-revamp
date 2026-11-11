@@ -41,13 +41,13 @@ export function getDb(): DatabaseSync {
   // Migrate known default image paths after the products table exists.
   // Admin-customized image paths are intentionally left unchanged.
   db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url IN (?, ?)").run(
-    "/images/volta-401-real.webp", "volta-401", "/images/volta-401-real.webp", "/images/volta-401-real.jpg"
+    "/images/volta-401-real.webp", "volta-401", "/images/volta-401.svg", "/images/volta-401-real.jpg"
   );
   db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url IN (?, ?)").run(
-    "/images/volta-eagle-real.webp", "volta-eagle", "/images/volta-eagle-real.webp", "/images/volta-eagle-real.jpg"
+    "/images/volta-eagle-real.webp", "volta-eagle", "/images/volta-eagle.svg", "/images/volta-eagle-real.jpg"
   );
   db.prepare("UPDATE products SET image_url = ? WHERE slug = ? AND image_url IN (?, ?)").run(
-    "/images/volta-mandala-real.webp", "volta-mandala", "/images/volta-mandala-real.webp", "/images/volta-mandala-real.jpg"
+    "/images/volta-mandala-real.webp", "volta-mandala", "/images/volta-mandala.svg", "/images/volta-mandala-real.jpg"
   );
 
 
